@@ -1,11 +1,4 @@
-FROM runmymind/docker-android-sdk:ubuntu-standalone
+FROM beebeeapp/circleci-containers:mobile-android
 
-ENV CI=true
-
-RUN rm sdk-tools-linux.zip
-
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - \
-    && apt-get install -y nodejs gradle python-pip imagemagick \
-    && npm i -g ionic cordova \
-    && pip install awscli \
-    && ./tools/bin/sdkmanager "build-tools;27.0.3"
+RUN npm i -g npm@^6.4.1 \
+    && npm i -g ionic@^4.5.0 cordova@^8.1.2
